@@ -4,11 +4,18 @@
     "version": "1.0",
     "manifest_version": 3,
     "background": {
-        "service_provider": ["background.js"]
+        "service_worker": "background.js"
     },
-    "permissions": ["storage", "activeTab", "scripting", "tabs", "cookies"],
+    "content_scripts": [
+        {
+            "matches": ["*://*.espn.com/*", "<all_urls>"],
+            "js": ["cookie_handler.js"]
+        }
+    ],
+    "options_page": "options.html",
+    "permissions": ["storage", "activeTab", "scripting", "cookies"],
     "host_permissions": [
-        "*://*.google.com/"
+        "*://*.espn.com/*", "<all_urls>"
     ],
     "action": {
         "default_popup": "popup.html",
