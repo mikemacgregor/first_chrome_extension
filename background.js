@@ -1,10 +1,6 @@
-let espn_s2 = 'one string';
-let SWID = 'another string';
+let color = '#3aa757';
 
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ espn_s2 });
-  chrome.storage.sync.set({ SWID });
-  console.log('espn_s2 set to %s', `${espn_s2}`);
-  console.log('SWID set to %s', `${SWID}`);
-  
+  chrome.storage.sync.set({ color });
+  console.log('Default background color set to %cgreen', `color: ${color}`);
 });
